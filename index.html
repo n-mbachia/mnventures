@@ -120,11 +120,12 @@
 							<section id="four">
 								<div class="container">
 									<h3>Contact Me</h3>
-								<p>Send me a message using the form below and I'll get back to you as soon as possible.</p>
-									<form id="contact-form" method="POST" action="https://formsubmit.co/mnventures2024@gmail.com">
+									<p>Send me a message using the form below and I'll get back to you as soon as possible.</p>
+									<form method="POST" action="https://formsubmit.co/mnventures2024@gmail.com">
 										<!-- Subject and basic anti-spam / FormSubmit settings -->
 										<input type="hidden" name="_subject" value="New message from mnventures page" />
 										<input type="hidden" name="_captcha" value="false" />
+										<input type="hidden" name="_next" value="https://n-mbachia.github.io/mnventures/?success=true" />
 										<!-- Honeypot field (bots will fill this) -->
 										<input type="text" name="hp" style="display:none" tabindex="-1" autocomplete="off" />
 
@@ -134,7 +135,6 @@
 											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
 											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6" required></textarea></div>
 											<div class="col-12">
-												<div id="form-status" style="margin-bottom:0.6rem;color:#2d6a4f;"></div>
 												<ul class="actions">
 													<li><input type="submit" class="primary" value="Send Message" /></li>
 													<li><input type="reset" value="Reset Form" /></li>
@@ -501,30 +501,4 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 	</body>
 </html>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	var form = document.getElementById('contact-form');
-	var status = document.getElementById('form-status');
-	if (!form) return;
-	form.addEventListener('submit', function(e) {
-		e.preventDefault();
-		// simple honeypot check
-		if (form.querySelector('input[name="hp"]').value) return;
-		var data = new FormData(form);
-		fetch(form.action, {
-			method: 'POST',
-			body: data,
-			headers: { 'Accept': 'application/json' }
-		}).then(function(response) {
-			if (response.ok) {
-				status.textContent = 'Message sent — thank you!';
-				form.reset();
-			} else {
-				response.json().then(function(d){
-					status.textContent = d && d.error ? d.error : 'Error sending message.';
-				}).catch(function(){ status.textContent = 'Error sending message.'; });
-			}
-		}).catch(function(){ status.textContent = 'Network error. Try again later.'; });
-	});
-});
-</script>
+

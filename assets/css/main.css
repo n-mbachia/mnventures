@@ -1902,7 +1902,7 @@ input, select, textarea {
 		appearance: none;
 		border-radius: 5px;
 		border: none;
-		border: solid 2px #e4e4e4;
+		border: solid 2.5px #4DB6AC;
 		color: inherit;
 		display: block;
 		outline: 0;
@@ -2694,7 +2694,7 @@ input, select, textarea {
 		input[type="reset"].primary,
 		input[type="button"].primary,
 		.button.primary {
-			background-color: #2C3E50;
+			background-color: #4DB6AC;
 			color: #ffffff !important;
 		}
 

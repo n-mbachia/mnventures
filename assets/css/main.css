@@ -3390,3 +3390,9 @@ input, select, textarea {
 			}
 
 	}
+
+/* Utility */
+
+	.hp-hidden {
+		display: none;
+	}

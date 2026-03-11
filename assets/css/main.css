@@ -3415,6 +3415,10 @@ input, select, textarea {
 	align-items: center;
 }
 
+.hero-intro-grid > * {
+	min-width: 0;
+}
+
 .hero-copy {
 	min-width: 0;
 }
@@ -3511,6 +3515,12 @@ input, select, textarea {
 	gap: 0.35em;
 	font-weight: 600;
 	margin-top: 0.9em;
+}
+
+iframe,
+embed,
+object {
+	max-width: 100%;
 }
 
 .stat-grid {
@@ -3641,5 +3651,35 @@ ul.feature-icons.modern li:before {
 
 	.hero-badge-card .badge-toggle {
 		display: inline-flex;
+	}
+
+	.hero-actions {
+		flex-direction: column;
+		align-items: stretch;
+		margin-left: 0;
+	}
+
+	.hero-actions li {
+		padding-left: 0;
+		width: 100%;
+	}
+
+	.hero-actions li > * {
+		width: 100%;
+	}
+
+	.hero-badge-card {
+		padding: 1.1em;
+		max-width: 100%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.hero-intro {
+		padding: 1.25em;
+	}
+
+	#one .hero-intro .hero-title {
+		font-size: 1.6em;
 	}
 }

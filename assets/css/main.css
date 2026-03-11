@@ -3463,7 +3463,41 @@ input, select, textarea {
 	font-weight: 700;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	margin-bottom: 1.2em;
+	margin-bottom: 0.45em;
+}
+
+.hero-badge-card .badge-title {
+	color: #2C3E50;
+	font-size: 1.1em;
+	font-weight: 700;
+	margin: 0 0 0.7em;
+}
+
+.hero-badge-card .badge-toggle {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	gap: 0.35em;
+	width: 100%;
+	border-radius: 999px;
+	border: 1px solid #dbe6e3;
+	background: #f4f8f7;
+	color: #2C3E50;
+	font-size: 0.85em;
+	font-weight: 600;
+	padding: 0.55em 1em;
+}
+
+.hero-badge-card .badge-toggle:hover {
+	background: #eef5f3;
+}
+
+.hero-badge-card .badge-body {
+	margin-top: 0.8em;
+}
+
+.hero-badge-card.is-collapsed .badge-body {
+	display: none;
 }
 
 .hero-badge-card .credly-badge {
@@ -3603,5 +3637,9 @@ ul.feature-icons.modern li:before {
 
 	#one .hero-intro .hero-title {
 		font-size: 1.8em;
+	}
+
+	.hero-badge-card .badge-toggle {
+		display: inline-flex;
 	}
 }

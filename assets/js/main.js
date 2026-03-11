@@ -156,4 +156,51 @@
 			}
 		});
 
+	// Hero badge collapse on small screens.
+		var $heroBadgeCard = $('.hero-badge-card');
+
+		if ($heroBadgeCard.length > 0) {
+			var $badgeToggle = $heroBadgeCard.find('.badge-toggle'),
+				$badgeBody = $heroBadgeCard.find('.badge-body'),
+				wasMobile = null;
+
+			var setBadgeState = function(isMobile) {
+				if (isMobile) {
+					$heroBadgeCard.addClass('is-collapsed');
+					$badgeToggle.attr('aria-expanded', 'false').text('Show Credential');
+					$badgeBody.attr('aria-hidden', 'true');
+				} else {
+					$heroBadgeCard.removeClass('is-collapsed');
+					$badgeToggle.attr('aria-expanded', 'true').text('Hide Credential');
+					$badgeBody.attr('aria-hidden', 'false');
+				}
+			};
+
+			$badgeToggle.on('click', function() {
+				var isCollapsed = $heroBadgeCard.hasClass('is-collapsed');
+
+				if (isCollapsed) {
+					$heroBadgeCard.removeClass('is-collapsed');
+					$badgeToggle.attr('aria-expanded', 'true').text('Hide Credential');
+					$badgeBody.attr('aria-hidden', 'false');
+				} else {
+					$heroBadgeCard.addClass('is-collapsed');
+					$badgeToggle.attr('aria-expanded', 'false').text('Show Credential');
+					$badgeBody.attr('aria-hidden', 'true');
+				}
+			});
+
+			var updateBadgeState = function() {
+				var isMobile = breakpoints.active('<=small');
+
+				if (wasMobile === isMobile)
+					return;
+
+				wasMobile = isMobile;
+				setBadgeState(isMobile);
+			};
+
+			$window.on('load resize', updateBadgeState);
+		}
+
 })(jQuery);

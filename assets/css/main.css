@@ -3408,6 +3408,17 @@ input, select, textarea {
 	margin-bottom: 2.5em;
 }
 
+.hero-intro-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.9fr);
+	gap: 2em;
+	align-items: center;
+}
+
+.hero-copy {
+	min-width: 0;
+}
+
 .hero-intro .eyebrow {
 	color: #4db6ac;
 	font-size: 0.85em;
@@ -3435,6 +3446,37 @@ input, select, textarea {
 
 .hero-actions {
 	margin-bottom: 1.75em;
+}
+
+.hero-badge-card {
+	background: #ffffff;
+	border: 1px solid #e6ecea;
+	border-radius: 14px;
+	box-shadow: 0 10px 26px rgba(44, 62, 80, 0.1);
+	padding: 1.4em;
+	text-align: center;
+}
+
+.hero-badge-card .badge-label {
+	color: #4db6ac;
+	font-size: 0.78em;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-bottom: 1.2em;
+}
+
+.hero-badge-card .credly-badge {
+	display: flex;
+	justify-content: center;
+}
+
+.hero-badge-card .badge-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35em;
+	font-weight: 600;
+	margin-top: 0.9em;
 }
 
 .stat-grid {
@@ -3526,6 +3568,15 @@ ul.feature-icons.modern li:before {
 @media screen and (max-width: 980px) {
 	.hero-intro {
 		padding: 2em;
+	}
+
+	.hero-intro-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.hero-badge-card {
+		max-width: 320px;
+		margin: 0 auto;
 	}
 
 	#one .hero-intro .hero-title {

@@ -1,24 +1,37 @@
 # MN Ventures Portfolio
 
-A professional portfolio website customized from an HTML5UP template and hosted on GitHub Pages.
+A professional portfolio website customized from the HTML5UP "Read Only" template and hosted on GitHub Pages.
 
 ## About
 
-This portfolio website showcases the work and services of MN Ventures. The site has been customized from a premium HTML5UP template to create a unique online presence.
+This portfolio website showcases the work and services of MN Ventures. The site has been customized from an HTML5UP template to create a modern, business-focused presence.
 
 ## Features
 
-- **Responsive Design**: Built with HTML5, CSS3, and JavaScript for optimal viewing across all devices
-- **Contact Form**: Functional contact form that sends emails directly to our designated email address
-- **GitHub Pages Hosting**: Deployed and activated on GitHub Pages for reliable hosting
-- **Template Customization**: Based on HTML5UP's high-quality template, customized to match our brand
+- **Modernized Landing Page**: Updated hero, CTAs, and content hierarchy for clearer UX
+- **Project Showcase**: Featured project cards with consistent layout and actions
+- **eBook Lead Capture**: Dedicated ebook form page for collecting interest and delivery details
+- **Contact Form**: Sends emails to the configured Gmail address via FormSubmit
+- **GitHub Pages Hosting**: Deployed and served as a static site
 
 ## Technology Stack
 
 - HTML5
-- CSS3
-- JavaScript
+- CSS3 (customized HTML5UP styles)
+- JavaScript (includes jQuery utilities from the template)
+- FormSubmit for email form handling
 - GitHub Pages for hosting
+
+## Key Pages
+
+- `index.html`: Main landing page and portfolio
+- `mushroom_ebook_form.html`: eBook interest form and payment instructions
+
+## Forms
+
+- **Contact form** (`index.html`) posts to FormSubmit and emails `mnventures2024@gmail.com`.
+- **eBook form** (`mushroom_ebook_form.html`) posts to FormSubmit and redirects back with `?success=1`.
+- If FormSubmit has not been activated for the address yet, the first submission triggers a confirmation email.
 
 ## Design Elements
 
@@ -56,8 +69,8 @@ The contact form on the website is fully functional and configured to send email
 
 ## Security Features
 
-- **Content Security Policy**: Configured CSP header for enhanced security
-- **Form Security**: Honeypot field and captcha bypass prevention
+- **Content Security Policy**: CSP meta tag configured for controlled external resources
+- **Form Security**: Honeypot field and captcha disabled for FormSubmit
 - **Secure Hosting**: GitHub Pages provides HTTPS by default
 - **Input Validation**: Client-side validation for all form inputs
 
@@ -86,7 +99,7 @@ The contact form on the website is fully functional and configured to send email
 
 ## Contributing
 
-This is a personal portfolio project. For inquiries or collaboration opportunities, please use the contact form on the website.
+This is a personal portfolio project. For inquiries or collaboration opportunities, use the contact form on the website.
 
 ## License
 

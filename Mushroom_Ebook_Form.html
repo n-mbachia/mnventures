@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Mushroom Bag to the Bank — Kenya Mushroom Farming Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #1C2B4A;
+    --mid-blue:   #2E4A7A;
+    --steel:      #4A6FA5;
+    --light-blue: #D6E4F7;
+    --caramel:    #A0622A;
+    --warm-brown: #6B4226;
+    --sand:       #E8D5B7;
+    --parchment:  #F7F1E8;
+    --cream:      #FDFAF4;
+    --white:      #FFFFFF;
+    --black:      #1A1A1A;
+    --grey:       #555555;
+    --light-grey: #E5E5E5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--parchment);
+    color: var(--black);
+    min-height: 100vh;
+  }
+
+  /* ── Hero Header ── */
+  .hero {
+    background: var(--navy);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--caramel);
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 36px 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .hero-logo {
+    flex-shrink: 0;
+    background: white;
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .hero-logo img { display: block; width: 120px; height: auto; }
+  .hero-text { flex: 1; }
+  .hero-eyebrow {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 8px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .hero-subtitle {
+    font-size: 13px;
+    color: var(--sand);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .hero-tagline {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--light-blue);
+  }
+
+  /* ── Main content ── */
+  .main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+  }
+
+  /* ── Card base ── */
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(28,43,74,0.08);
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .card-header {
+    background: var(--navy);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-header.caramel { background: var(--caramel); }
+  .card-header.steel   { background: var(--mid-blue); }
+  .card-header h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .card-header .icon { font-size: 18px; }
+  .card-body { padding: 24px; }
+
+  /* ── Warm thank-you intro ── */
+  .thankyou-block {
+    background: var(--cream);
+    border-left: 5px solid var(--caramel);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 22px;
+    margin-top: 20px;
+  }
+  .thankyou-block p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--warm-brown);
+  }
+  .thankyou-block p strong { color: var(--navy); }
+
+  /* ── Synopsis ── */
+  .synopsis-text {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: var(--grey);
+  }
+  .synopsis-text p { margin-bottom: 14px; }
+  .synopsis-text p:last-child { margin-bottom: 0; }
+
+  /* ── Stats row ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0 0;
+  }
+  .stat-pill {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+  .stat-pill .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+  }
+  .stat-pill .lbl {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--mid-blue);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ── Feature-Benefit rows ── */
+  .fb-row {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--light-grey);
+    padding: 14px 0;
+    align-items: flex-start;
+  }
+  .fb-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .fb-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    margin-right: 14px;
+    margin-top: 2px;
+  }
+  .fb-content { flex: 1; }
+  .fb-feat {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--warm-brown);
+    margin-bottom: 4px;
+  }
+  .fb-benefit {
+    font-size: 12.5px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  /* ── Pricing ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .price-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  .price-card-header {
+    padding: 12px;
+    text-align: center;
+  }
+  .price-card-header.navy    { background: var(--navy); }
+  .price-card-header.steel   { background: var(--mid-blue); }
+  .price-card-header.caramel { background: var(--caramel); }
+  .price-card-header .p-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 4px;
+  }
+  .price-card-header .p-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+  }
+  .price-card-header .p-sub {
+    font-size: 9px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 3px;
+  }
+  .price-card-body {
+    background: var(--cream);
+    padding: 12px;
+  }
+  .price-card-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .price-card-body li {
+    font-size: 11.5px;
+    color: var(--grey);
+    padding: 3px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .price-card-body li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--caramel);
+    font-weight: 700;
+    font-size: 10px;
+  }
+  .save-badge {
+    display: inline-block;
+    background: var(--sand);
+    color: var(--warm-brown);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 6px;
+  }
+
+  /* ── Payment ── */
+  .payment-box {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .pay-item .pay-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 4px;
+  }
+  .pay-item .pay-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .pay-item .pay-note {
+    font-size: 11px;
+    color: var(--light-blue);
+    margin-top: 3px;
+  }
+  .pay-full { grid-column: 1 / -1; }
+  .delivery-note {
+    background: var(--mid-blue);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 12px;
+    font-size: 11.5px;
+    color: var(--sand);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* ── Form ── */
+  .form-section { }
+  .form-group { margin-bottom: 20px; }
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 7px;
+    letter-spacing: 0.3px;
+  }
+  .form-label span { color: var(--caramel); margin-left: 2px; }
+  .form-input {
+    width: 100%;
+    border: 1.5px solid var(--light-grey);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: var(--black);
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .form-input:focus {
+    border-color: var(--steel);
+    box-shadow: 0 0 0 3px rgba(74,111,165,0.15);
+  }
+  .form-input::placeholder { color: #aaa; }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .form-helper {
+    font-size: 11px;
+    color: #999;
+    margin-top: 5px;
+  }
+  .interest-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 10px 14px;
+    border: 1.5px solid var(--light-grey);
+    border-radius: 8px;
+    background: var(--cream);
+    transition: all 0.2s;
+  }
+  .check-item:hover { border-color: var(--steel); background: var(--light-blue); }
+  .check-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--navy); cursor: pointer; }
+  .check-item-text { font-size: 13px; color: var(--navy); }
+  .check-item-text strong { display: block; font-weight: 700; }
+  .check-item-text small { color: var(--grey); font-size: 11px; }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--mid-blue); transform: translateY(-1px); }
+  .submit-btn:active { transform: translateY(0); }
+
+  /* ── Success state ── */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 40px 24px;
+  }
+  .success-screen .success-icon {
+    font-size: 54px;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .success-screen h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+  .success-screen p {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .success-screen .pay-reminder {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .success-screen .pay-reminder strong { color: var(--sand); }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--navy);
+    color: var(--sand);
+    text-align: center;
+    padding: 18px 24px;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 40px;
+  }
+  .footer strong { color: var(--caramel); }
+
+  @media (max-width: 520px) {
+    .hero-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .hero-logo img { width: 100px; }
+    .hero-title { font-size: 24px; }
+    .stats-row { grid-template-columns: repeat(2,1fr); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .payment-box { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <!-- Mushroom Blue logo placeholder — replace src with hosted image URL -->
+      <div style="width:120px;height:58px;background:var(--navy);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+        <span style="color:var(--caramel);font-family:'Playfair Display',serif;font-size:13px;font-weight:700;text-align:center;line-height:1.3">Mushroom<br><span style="color:#5BC8D4">blue</span></span>
+      </div>
+    </div>
+    <div class="hero-text">
+      <p class="hero-eyebrow">Kenya Mushroom Farming Guide — 2024 Edition</p>
+      <h1 class="hero-title">From the Bag<br>to the Bank</h1>
+      <p class="hero-subtitle">The complete guide for Kenyan farmers who want to grow mushrooms right, sell them smart, and build a business that lasts.</p>
+      <p class="hero-tagline">by Ng'ethe. Mbachia &nbsp;•&nbsp; 71 pages &nbsp;•&nbsp; 20 chapters</p>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Thank you intro -->
+  <div class="thankyou-block">
+    <p>
+      Thank you for your interest in <strong>From the Bag to the Bank</strong> — and in mushroom farming as a serious business opportunity in Kenya.<br><br>
+      Mushrooms are one of the fastest-growing agricultural sectors in the country, and farmers who get the foundations right — production, biosafety, markets, and finances — are building genuinely profitable enterprises. We are glad you are one of them.<br><br>
+      Please fill in your details below so we can send your copy directly to your inbox. We look forward to being part of your mushroom farming journey. 🍄
+    </p>
+  </div>
+
+  <!-- Synopsis -->
+  <div class="card">
+    <div class="card-header">
+      <span class="icon">📖</span>
+      <h2>About This Guide</h2>
+    </div>
+    <div class="card-body">
+      <div class="synopsis-text">
+        <p>Most Kenyan mushroom farmers fail not because mushrooms are hard to grow — but because no one showed them the full picture: how to grow consistently, who to sell to, and how to run it as a real business.</p>
+        <p><em>From the Bag to the Bank</em> closes that gap. Written for first-time and early-stage Kenyan farmers, it walks you through every step — from choosing your first spawn to signing your first hotel supply agreement — in plain, practical language.</p>
+        <p>Inside, you will learn how to avoid the contamination mistakes that destroy 30% of most first batches, how to sell to hotels, supermarkets, and online buyers, and how to multiply your income by drying and powdering your harvest. A complete KES 100,000 financial case study shows you exactly what to expect — costs, revenue, cashflow, and a 235% annual return when managed correctly.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-pill"><span class="num">20</span><span class="lbl">Chapters</span></div>
+        <div class="stat-pill"><span class="num">47</span><span class="lbl">Reference Tables</span></div>
+        <div class="stat-pill"><span class="num">71</span><span class="lbl">Pages</span></div>
+        <div class="stat-pill"><span class="num">1</span><span class="lbl">Supply Agreement</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 Reasons -->
+  <div class="card">
+    <div class="card-header caramel">
+      <span class="icon">✅</span>
+      <h2>5 Reasons to Read This Guide</h2>
+    </div>
+    <div class="card-body">
+      <div class="fb-row">
+        <div class="fb-num">1</div>
+        <div class="fb-content">
+          <div class="fb-feat">Stop losing crops to contamination</div>
+          <div class="fb-benefit">A full biosafety chapter covers 5 pests, 6 diseases, and a step-by-step clean-room protocol — protecting the investment that most first-time farmers lose in their first two cycles.</div>
+        </div>
+      </div>
+      <div class="fb-row">
+        <div class="fb-num">2</div>
+        <div class="fb-content">
+          <div class="fb-feat">Know exactly what you'll earn before you start</div>
+          <div class="fb-benefit">A live KES 100,000 case study shows your monthly cashflow, break-even in Month 4, and 235% annual ROI. No guesswork — just clear numbers.</div>
+        </div>
+      </div>
+      <div class="fb-row">
+        <div class="fb-num">3</div>
+        <div class="fb-content">
+          <div class="fb-feat">Multiply your income without growing more mushrooms</div>
+          <div class="fb-benefit">Learn to dry and powder your harvest. The same crop that earns KES 550/kg fresh earns KES 4,000–8,000/kg dried — opening supermarket, export, and online health markets.</div>
+        </div>
+      </div>
+      <div class="fb-row">
+        <div class="fb-num">4</div>
+        <div class="fb-content">
+          <div class="fb-feat">Walk into any buyer meeting prepared</div>
+          <div class="fb-benefit">A pricing strategy section teaches you your floor price, how to negotiate by customer type, and how to say no to a bad deal — professionally.</div>
+        </div>
+      </div>
+      <div class="fb-row">
+        <div class="fb-num">5</div>
+        <div class="fb-content">
+          <div class="fb-feat">Turn farming into a registered, bankable business</div>
+          <div class="fb-benefit">Covers business registration, tax obligations, KEBS certification, and how to access SACCOs, KCB Agri-loans, and government funds — with your farm records as proof.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="card">
+    <div class="card-header steel">
+      <span class="icon">💰</span>
+      <h2>Choose Your Package</h2>
+    </div>
+    <div class="card-body">
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-card-header navy">
+            <div class="p-label">Guide Only</div>
+            <div class="p-price">KES 799</div>
+            <div class="p-sub">PDF — instant delivery</div>
+          </div>
+          <div class="price-card-body">
+            <ul>
+              <li>71-page cultivation guide</li>
+              <li>20 comprehensive chapters</li>
+              <li>47 reference tables</li>
+              <li>4 pencil illustrations</li>
+              <li>Supply agreement template</li>
+              <li>5 Kenyan recipes included</li>
+            </ul>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header steel">
+            <div class="p-label">Spreadsheet Only</div>
+            <div class="p-price">KES 499</div>
+            <div class="p-sub">Excel/Sheets — instant delivery</div>
+          </div>
+          <div class="price-card-body">
+            <ul>
+              <li>11 ready-to-use sheets</li>
+              <li>839 live formulas</li>
+              <li>Investment budget built-in</li>
+              <li>12-month cashflow model</li>
+              <li>Daily farm log & harvest log</li>
+              <li>⚠️ Environmental alerts</li>
+            </ul>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header caramel">
+            <div class="p-label">Complete Bundle</div>
+            <div class="p-price">KES 1249</div>
+            <div class="p-sub">Both together</div>
+          </div>
+          <div class="price-card-body">
+            <ul>
+              <li>Full cultivation guide PDF</li>
+              <li>Enterprise budget spreadsheet</li>
+              <li>Everything in both packages</li>
+              <li>Guide & spreadsheet work together</li>
+            </ul>
+            <div class="save-badge">💛 Save KES 49</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment -->
+  <div class="card">
+    <div class="card-header caramel">
+      <span class="icon">📱</span>
+      <h2>How to Pay — M-Pesa</h2>
+    </div>
+    <div class="card-body">
+      <div class="payment-box">
+        <div class="pay-item">
+          <div class="pay-label">M-Pesa Paybill Number</div>
+          <div class="pay-value">247247</div>
+        </div>
+        <div class="pay-item">
+          <div class="pay-label">Account Number</div>
+          <div class="pay-value">741222</div>
+        </div>
+        <div class="pay-item pay-full">
+          <div class="pay-label">After Payment — WhatsApp</div>
+          <div class="pay-value">0715 74 1222</div>
+          <div class="pay-note">Send your payment confirmation + the email address you used below. Your files will be sent to your email instantly.</div>
+        </div>
+      </div>
+      <div class="delivery-note">
+        📩 &nbsp;Digital delivery — your guide and/or spreadsheet will be emailed to you within minutes of payment confirmation.<br>
+        Compatible with <strong>Microsoft Excel</strong> &nbsp;•&nbsp; <strong>Google Sheets</strong> &nbsp;•&nbsp; <strong>LibreOffice</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="card">
+    <div class="card-header">
+      <span class="icon">📋</span>
+      <h2>Your Details</h2>
+    </div>
+    <div class="card-body">
+      <div id="formView">
+        <p style="font-size:13px;color:var(--grey);margin-bottom:22px;line-height:1.7">
+          Please fill in your contact details below. We will use these to send your purchase and to keep you updated with mushroom farming tips, market insights, and future resources from Ng'ethe. Mbachia.
+        </p>
+
+        <form id="ebookForm" method="POST" action="https://formsubmit.co/mnventures2024@gmail.com" class="form-section">
+          <input type="hidden" name="_subject" value="Mushroom ebook interest form submission">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://n-mbachia.github.io/mnventures/Mushroom_Ebook_Form.html?success=1">
+
+          <div class="form-group">
+            <label class="form-label">Full Name <span>*</span></label>
+            <input class="form-input" id="fname" name="name" type="text" placeholder="e.g. Jane Wambui Kariuki" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Email Address <span>*</span></label>
+              <input class="form-input" id="femail" name="_replyto" type="email" placeholder="your@email.com" required>
+              <p class="form-helper">Your guide will be delivered here</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone / WhatsApp Number <span>*</span></label>
+              <input class="form-input" id="fphone" name="phone" type="tel" placeholder="e.g. 0715 741 222" required>
+              <p class="form-helper">For payment confirmation follow-up</p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Farm Location / County <span>*</span></label>
+              <input class="form-input" id="flocation" name="location" type="text" placeholder="e.g. Kiambu County / Limuru" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Country <span>*</span></label>
+              <input class="form-input" id="fcountry" name="country" type="text" placeholder="e.g. Kenya" value="Kenya" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">I am interested in <span>*</span></label>
+            <div class="interest-checks">
+              <label class="check-item">
+                <input type="checkbox" id="chk-guide" name="interest" value="Cultivation Guide (KES 699)" checked>
+                <div class="check-item-text">
+                  <strong>📖 The Cultivation Guide — KES 799</strong>
+                  <small>71-page PDF guide: production, markets, finance, biosafety &amp; more</small>
+                </div>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="chk-sheet" name="interest" value="Enterprise Budget Spreadsheet (KES 299)">
+                <div class="check-item-text">
+                  <strong>📊 Enterprise Budget Spreadsheet — KES 499</strong>
+                  <small>11-sheet Excel/Google Sheets workbook with 839 live formulas</small>
+                </div>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="chk-bundle" name="interest" value="Complete Bundle (KES 899)">
+                <div class="check-item-text">
+                  <strong>💛 Complete Bundle — KES 1249 (Save KES 49)</strong>
+                  <small>Guide + Spreadsheet together — the recommended combination</small>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <button class="submit-btn" type="submit">
+            Submit My Interest &amp; Proceed to Payment →
+          </button>
+        </form>
+      </div>
+
+      <!-- Success screen -->
+      <div class="success-screen" id="successView">
+        <span class="success-icon">🍄</span>
+        <h2>Thank You — Welcome to the Journey!</h2>
+        <p>
+          Your interest has been registered. We are delighted to welcome you to the growing community of Kenyan mushroom farmers who are serious about building a real business from the ground up.
+        </p>
+        <p>
+          Please complete your payment via M-Pesa below, then WhatsApp us your confirmation and email address. Your files will be in your inbox within minutes.
+        </p>
+        <div class="pay-reminder">
+          <strong>To complete your order:</strong><br>
+          M-Pesa Paybill: <strong>247247</strong> &nbsp;|&nbsp; Account: <strong>741222</strong><br>
+          After payment, WhatsApp <strong>0715 74 1222</strong><br>
+          Include your name and the email address you used above.
+        </div>
+        <p style="margin-top:18px;font-size:12px;color:#aaa">
+          Ng'ethe. Mbachia &nbsp;•&nbsp; Kenya Mushroom Growers Guide 2024 &nbsp;•&nbsp; All rights reserved
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<div class="footer">
+  <strong>From the Bag to the Bank</strong> — Kenya Mushroom Farming Guide &nbsp;•&nbsp; by Ng'ethe. Mbachia &nbsp;•&nbsp; 2024 Edition<br>
+  Questions? WhatsApp <strong>0715 74 1222</strong> &nbsp;•&nbsp; Digital delivery — instant after payment confirmation
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const formView = document.getElementById('formView');
+  const successView = document.getElementById('successView');
+
+  if (params.get('success') === '1' || params.get('success') === 'true') {
+    if (formView) formView.style.display = 'none';
+    if (successView) successView.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  const form = document.getElementById('ebookForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    const checked = form.querySelectorAll('input[name="interest"]:checked');
+    if (checked.length === 0) {
+      e.preventDefault();
+      alert('Please select at least one interest option.');
+    }
+  });
+});
+</script>
+</body>
+</html>

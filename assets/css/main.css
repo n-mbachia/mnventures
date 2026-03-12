@@ -3412,7 +3412,7 @@ input, select, textarea {
 	display: grid;
 	grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.9fr);
 	gap: 2em;
-	align-items: center;
+	align-items: start;
 }
 
 .hero-intro-grid > * {
@@ -3450,6 +3450,14 @@ input, select, textarea {
 
 .hero-actions {
 	margin-bottom: 1.75em;
+	margin-left: 0;
+	gap: 0.75em;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.hero-actions li {
+	padding-left: 0;
 }
 
 .hero-badge-card {
@@ -3459,6 +3467,8 @@ input, select, textarea {
 	box-shadow: 0 10px 26px rgba(44, 62, 80, 0.1);
 	padding: 1.4em;
 	text-align: center;
+	align-self: end;
+	margin-top: 0;
 }
 
 .hero-badge-card .badge-label {
@@ -3527,6 +3537,7 @@ object {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 1em;
+	align-items: stretch;
 }
 
 .stat-card {
@@ -3535,6 +3546,10 @@ object {
 	border-radius: 12px;
 	padding: 1.1em 1.2em;
 	box-shadow: 0 8px 24px rgba(44, 62, 80, 0.08);
+	display: flex;
+	flex-direction: column;
+	gap: 0.35em;
+	min-height: 120px;
 }
 
 .stat-value {
